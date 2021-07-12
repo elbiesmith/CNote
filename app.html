@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>jstemplate: A Coding Challenge</title>
+    <title>CNote: A Coding Challenge</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,7 +19,7 @@
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">APP NAME</a>
+            <a class="navbar-brand" href="#">CNote</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -48,11 +48,36 @@
 
     <main class="flex-shrink-0">
         <div class="container">
-            <h1 class="mt-5">Template with dark fixed navbar and sticky footer</h1>
-            <p class="lead">Pin a footer to the bottom of the viewport in desktop browsers with this custom HTML and
-                CSS. A fixed navbar has been added with padding-top: 60px; on the main > .container.</p>
-            <i class="fab fa-linkedin-in"></i>
+            <div class="row">
 
+                <div class="col border-end p-4">
+                    <div class="row">
+                        <h3>Hundo App</h3>
+                    </div>
+                    <div class="row border-top">
+                        <h5>Instructions</h5>
+                    </div>
+                </div>
+                <div class="col p-4">
+                    <div class="row">
+                        <h5>Enter Values</h5>
+                        <div class="col">
+                            <input type="number" class="form-control" id="startValue" placeholder="Start Value" value=0>
+                        </div>
+                        <div class="col">
+                            <input type="number" class="form-control" id="endValue" placeholder="End Value" value=100>
+                        </div>
+                        <button id="submitBtn" class="btn btn-dark">Submit</button>
+                    </div>
+                    <div class="row">
+                        <h5 class="border-bottom">Results</h5>
+                        <p id="ouput">
+
+                        </p>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </main>
     <footer class="footer mt-auto py-3 bg-dark">
@@ -84,6 +109,9 @@
     <script src="/js/brands.min.js"></script>
     <script src="/js/prism.js"></script>
     <script src="/js/site.js"></script>
+    <script>
+        document.getElementById("submitBtn").addEventListener("click", getNumbers);
+    </script>
 
 </body>
 
