@@ -12,9 +12,9 @@ function getValues() {
     displayNumbers(numbers);
 }
 
-function generateNumbers(startNum, endNum) {
+function generateNumbers(startValue, endValue) {
     let numberArray = [];
-    for (let i = startNum; i < endNum + 1; i++) {
+    for (let i = startValue; i < endValue + 1; i++) {
         numberArray.push(i);
     }
 
@@ -26,7 +26,7 @@ function displayNumbers(numberArray) {
     tableBody.innerHTML = "";
     for (let i = 0; i < numberArray.length; i++) {
         if (numberArray[i] % 2 === 0) {
-            tableBody.innerHTML += `<tr><td><strong>${numberArray[i]}</strong></td> </tr>`;
+            tableBody.innerHTML += `<tr><td><strong>${numberArray[i]}</strong></td></tr>`;
         } else {
             tableBody.innerHTML += `<tr><td>${numberArray[i]}</td> </tr>`;
         }
