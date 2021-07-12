@@ -11,17 +11,49 @@
    }
 
    .js-color {
-       color: #f7df1e;
+       color: #e2d304;
    }
 
    .bs-color {
-       color: #7952b3;
+       color: #800080;
    }
 
    .html-color {
-       color: #e34c26;
+       color: #ff4500;
    }
 
    .css-color {
-       color: #2565ae;
+       color: #0b52d6;
+   }
+
+   .even {
+       font-weight: bold;
+   }
+
+   .odd {
+       font-weight: normal;
+   }
+   h1,h2,h3,h4,h5,h6 {
+       color: #68807A;
+   }
+   .btn-grn {
+       background-color: #68807A;
+       color: white;
+   }
+
+   .btn-grn:hover {
+       background-color: #6B8068;
+       color: white;
+   }
+
+   .row-sizer {
+       min-height: 250px;
+   }
+
+   .txt-grn {
+       color: #68807A;
+   }
+
+   .table-text-size {
+       font-size: 12px;
    }

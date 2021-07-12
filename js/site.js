@@ -24,11 +24,15 @@ function generateNumbers(startValue, endValue) {
 function displayNumbers(numberArray) {
     let tableBody = document.getElementById("output");
     tableBody.innerHTML = "";
+    let className = 'even';
     for (let i = 0; i < numberArray.length; i++) {
+        
         if (numberArray[i] % 2 === 0) {
-            tableBody.innerHTML += `<tr><td><strong>${numberArray[i]}</strong></td></tr>`;
+            className = 'even';
         } else {
-            tableBody.innerHTML += `<tr><td>${numberArray[i]}</td> </tr>`;
+            className = 'odd'
         }
+
+        tableBody.innerHTML += `<tr><td class="${className}">${numberArray[i]}</td> </tr>`;
     }
 }
