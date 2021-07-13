@@ -10,7 +10,7 @@ function getValues() {
         errorState = true;
         errorMsg += 'Please use a number.<hr />'
     }
-    
+
     if (startValue > endValue) {
         errorState = true;
         errorMsg += 'Please ensure that the start number is less than the end number.<hr />'
@@ -22,12 +22,13 @@ function getValues() {
     }
 
     if (errorState) {
-        Swal.fire(
-            'Something went wrong',
-            `${errorMsg}`,
-            'error',
-            'OK'
-        )
+        Swal.fire({
+            title: 'Something went wrong',
+            html: `${errorMsg}`,
+            type: 'error',
+            confirmButtonText: 'OK',
+            confirmButtonColor: '#68807A'
+        })
     }
 
     // take the start and end values as teh bounds for a 'for' loop
