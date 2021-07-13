@@ -2,6 +2,33 @@ function getValues() {
     // access the web page and get the values from the inputs
     let startValue = parseInt(document.getElementById("startValue").value);
     let endValue = parseInt(document.getElementById("endValue").value);
+    let errorState = false;
+    let errorMsg = "";
+
+    // Verify that we have numbers
+    if (isNaN(startValue) || isNaN(endValue)) {
+        errorState = true;
+        errorMsg += 'Please use a number.<hr />'
+    }
+    
+    if (startValue > endValue) {
+        errorState = true;
+        errorMsg += 'Please ensure that the start number is less than the end number.<hr />'
+    }
+
+    if (startValue < -10000 || startValue > 10000 || endValue < -10000 || endValue > 10000) {
+        errorState = true;
+        errorMsg += 'To Save your processor, please use a range of less than 20,000';
+    }
+
+    if (errorState) {
+        Swal.fire(
+            'Something went wrong',
+            `${errorMsg}`,
+            'error',
+            'OK'
+        )
+    }
 
     // take the start and end values as teh bounds for a 'for' loop
     // that will create an array and return it.
