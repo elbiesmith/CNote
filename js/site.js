@@ -26,7 +26,7 @@ function displayNumbers(numberArray) {
     tableBody.innerHTML = "";
     let className = 'even';
     for (let i = 0; i < numberArray.length; i++) {
-        
+
         if (numberArray[i] % 2 === 0) {
             className = 'even';
         } else {

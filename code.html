@@ -20,7 +20,7 @@
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">C-Note</a>
+            <a class="navbar-brand" href="#"><img src="/img/logo-round-transparent.png" alt=""> C-Note</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -37,7 +37,7 @@
                         <a class="nav-link active" aria-current="page" href="/code.html">The Code</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="http://github.com/elbiesmith">Git Repo</a>
+                        <a class="nav-link" target="_blank" href="http://github.com/elbiesmith/CNote">Git Repo</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" target="_blank" href="http://elbie.me">About Me</a>
@@ -49,10 +49,90 @@
 
     <main class="flex-shrink-0">
         <div class="container">
-            <h1 class="mt-5">Template with dark fixed navbar and sticky footer</h1>
-            <p class="lead">Pin a footer to the bottom of the viewport in desktop browsers with this custom HTML and
-                CSS. A fixed navbar has been added with padding-top: 60px; on the main > .container.</p>
-            <i class="fab fa-linkedin-in"></i>
+            <h1 class="border-bottom border-2">The Code</h1>
+            <div class="row">
+                <div class="col">
+                    <pre class="line-numbers language-javascript">
+                    <code class="language-javascript">
+                        function getValues() {
+                        // access the web page and get the values from the inputs
+                        let startValue = parseInt(document.getElementById("startValue").value);
+                        let endValue = parseInt(document.getElementById("endValue").value);
+
+                        // take the start and end values as teh bounds for a 'for' loop
+                        // that will create an array and return it.
+                        let numbers = generateNumbers(startValue, endValue);
+
+                        // take the array that was returned and pass it to a function that
+                        // will display it on the page.
+                        displayNumbers(numbers);
+                        }
+
+                        function generateNumbers(startValue, endValue) {
+                            let numberArray = [];
+                            for (let i = startValue; i < endValue + 1; i++) {
+                                numberArray.push(i);
+                            }
+                            return numberArray; }
+
+                        function displayNumbers(numberArray) {
+                            let tableBody=document.getElementById("output");
+                            tableBody.innerHTML="" ;
+                            let className='even' ;
+                            for (let i=0; i < numberArray.length; i++) {
+                                if(numberArray[i] % 2===0) {
+                                    className='even';
+                                } else {
+                                     className='odd';
+                                }
+
+                                tableBody.innerHTML += `<tr><td class="${className}">${numberArray[i]}</td></tr>`;
+                            }
+                        }
+                    </code>
+                    </pre>
+                </div>
+                <div class="col"><p>The code is structured in three functions.</p>
+
+                    <h5>getValues</h5>
+                    <p>
+                        getValues accepts(gets) the user input from the page. It utilizes getElementById to pull the
+                        values
+                        from the page. It passes those values to the generateNumbers function. The function
+                        generateNumbers
+                        returns an array of values and passes that array to the displayNumbers function.
+                    </p>
+
+                    <h5>generateNumbers</h5>
+                    <p>
+                        generateNumbers takes in two parameters startValue and endValue. We create a variable (numberArray)
+                        that
+                        holds an array. A for loop is used to generate all of the numbers between startValue and
+                        endValue
+                    </p>
+
+                    <h5>displayNumbers</h5>
+                    <p>
+                        displayNumbers takes in one parameter numberArray. The variable numberArray is an array the holds values
+                        between startValue and endValue. We create a variable (className) that holds the name of a CSS
+                        class
+                        that we will use to bold the numbers. We create a variable templateRows that will hold the html
+                        we
+                        will write to the page.
+                    </p>
+
+                    <p>
+                        A for loop is used to check all of the numbers to see if they are even or odd. The remainder
+                        operator (%) is used to see if the number is divisable by two. If it returns zero the it is
+                        even. If
+                        not (else) its odd. The correct className is injected into the html row for display. Each
+                        interation
+                        of the loop adds to the teamplateRows variable. At the end of the loop the resulting HTML rows
+                        are
+                        written to the page.
+                    </p>
+                </div>
+            </div>
 
         </div>
     </main>

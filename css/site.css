@@ -33,9 +33,16 @@
    .odd {
        font-weight: normal;
    }
-   h1,h2,h3,h4,h5,h6 {
+
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   h6 {
        color: #68807A;
    }
+
    .btn-grn {
        background-color: #68807A;
        color: white;
@@ -47,7 +54,7 @@
    }
 
    .row-sizer {
-       min-height: 250px;
+       min-height: 160px;
    }
 
    .txt-grn {
@@ -57,3 +64,4 @@
    .table-text-size {
        font-size: 12px;
    }
+
