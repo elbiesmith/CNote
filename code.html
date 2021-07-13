@@ -55,66 +55,67 @@
                     <pre class="line-numbers language-javascript">
                     <code class="language-javascript">
                         function getValues() {
-                            // access the web page and get the values from the inputs
-                            let startValue = parseInt(document.getElementById("startValue").value);
-                            let endValue = parseInt(document.getElementById("endValue").value);
-                            let errorState = false;
-                            let errorMsg = "";
+                          // access the web page and get the values from the inputs
+                          let startValue = parseInt(document.getElementById("startValue").value);
+                          let endValue = parseInt(document.getElementById("endValue").value);
+                          let errorState = false;
+                          let errorMsg = "";
 
-                            // Verify that we have numbers
-                            if (isNaN(startValue) || isNaN(endValue)) {
-                                errorState = true;
-                                errorMsg += 'Please use a number.&lt;hr /&gt;';
-                            }
+                          // Verify that we have numbers
+                          if (isNaN(startValue) || isNaN(endValue)) {
+                              errorState = true;
+                              errorMsg += 'Please use a number.&lt;hr /&gt;';
+                          }
 
-                            if (startValue > endValue) {
-                                errorState = true;
-                                errorMsg += 'Please ensure that the start number is less than the end number.&lt;hr /&gt;';
-                            }
+                          if (startValue > endValue) {
+                              errorState = true;
+                              errorMsg += 'Please ensure that the start number is less than the end number.&lt;hr /&gt;';
+                          }
 
-                            if (startValue < -10000 || startValue> 10000 || endValue < -10000 || endValue> 10000) {
-                                errorState = true;
-                                errorMsg += 'To Save your processor, please use a range of less than 20,000&lt;hr/&gt;';
-                            }
+                          if (startValue < -10000 || startValue> 10000 || endValue < -10000 || endValue> 10000) {
+                              errorState = true;
+                              errorMsg += 'To Save your processor, please use a range of less than 20,000&lt;hr/&gt;';
+                          }
 
-                            if (errorState) {
-                                Swal.fire(
-                                    'Something went wrong',
-                                    `${errorMsg}`,
-                                    'error',
-                                    'OK'
-                                )
-                            }
+                          if (errorState) {
+                              Swal.fire({
+                                title: 'Something went wrong',
+                                html: `${errorMsg}`,
+                                type: 'error',
+                                confirmButtonText: 'OK',
+                                confirmButtonColor: '#68807A'
+                              })
+                          }
 
-                            // take the start and end values as teh bounds for a 'for' loop
-                            // that will create an array and return it.
-                            let numbers = generateNumbers(startValue, endValue);
+                          // take the start and end values as teh bounds for a 'for' loop
+                          // that will create an array and return it.
+                          let numbers = generateNumbers(startValue, endValue);
 
-                            // take the array that was returned and pass it to a function that
-                            // will display it on the page.
-                            displayNumbers(numbers);
+                          // take the array that was returned and pass it to a function that
+                          // will display it on the page.
+                          displayNumbers(numbers);
                         }
 
                         function generateNumbers(startValue, endValue) {
-                            let numberArray = [];
-                            for (let i = startValue; i < endValue + 1; i++) {
-                                numberArray.push(i);
-                            }
-                            return numberArray; }
+                          let numberArray = [];
+                          for (let i = startValue; i < endValue + 1; i++) {
+                              numberArray.push(i);
+                          }
+                          return numberArray; }
 
                         function displayNumbers(numberArray) {
-                            let tableBody=document.getElementById("output");
-                            tableBody.innerHTML="" ;
-                            let className='even' ;
-                            for (let i=0; i < numberArray.length; i++) {
-                                if(numberArray[i] % 2===0) {
-                                    className='even';
-                                } else {
-                                     className='odd';
-                                }
+                          let tableBody=document.getElementById("output");
+                          tableBody.innerHTML="" ;
+                          let className='even' ;
+                          for (let i=0; i < numberArray.length; i++) {
+                              if(numberArray[i] % 2===0) {
+                                  className='even';
+                              } else {
+                                   className='odd';
+                              }
 
-                                tableBody.innerHTML += `&lt;tr&gt;&lt;td class="${className}"&gt;${numberArray[i]}&lt;/td&gt;&lt;/tr&gt;`;
-                            }
+                              tableBody.innerHTML += `&lt;tr&gt;&lt;td class="${className}"&gt;${numberArray[i]}&lt;/td&gt;&lt;/tr&gt;`;
+                          }
                         }
                     </code>
                     </pre>
@@ -128,6 +129,9 @@
                         from the page. It passes those values to the generateNumbers function. The function
                         generateNumbers
                         returns an array of values and passes that array to the displayNumbers function.
+                    </p>
+                    <p>After getting the values, we need to verify that they are actually numbers, we do this utilizing 
+                        if statements and output a message if there is an error.
                     </p>
 
                     <h5>generateNumbers</h5>
