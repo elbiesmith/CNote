@@ -123,6 +123,16 @@
     <script src="/js/site.js"></script>
     <script>
         document.getElementById("submitBtn").addEventListener("click", getValues);
+        document.getElementById("startValue").addEventListener('keypress', function(keyPressed) {
+            if (keyPressed.key === "Enter") {
+                getValues();
+            }
+        })
+        document.getElementById("endValue").addEventListener('keypress', function(keyPressed) {
+            if (keyPressed.key === "Enter") {
+                getValues();
+            }
+        })
     </script>
 
 </body>
