@@ -31,7 +31,7 @@ function getValues() {
         })
     }
 
-    // take the start and end values as teh bounds for a 'for' loop
+    // take the start and end values as the bounds for a 'for' loop
     // that will create an array and return it.
     let numbers = generateNumbers(startValue, endValue);
 
